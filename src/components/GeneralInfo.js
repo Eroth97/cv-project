@@ -10,46 +10,17 @@ class GeneralInfo extends Component{
       phone: 0,
     }
     this.handleSubmission = this.handleSubmission.bind(this);
-    this.changeFirstName = this.changeFirstName.bind(this);
-    this.changeLastName = this.changeLastName.bind(this);
-    this.changeEmail = this.changeEmail.bind(this);
-    this.changeNumber = this.changeNumber.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  changeFirstName(event){
-    this.setState({
-      firstName: event.target.value,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      phone: this.state.phone,
-    })
-  }
+  handleChange(event){
+    let {firstName, lastName, email, phone} = this.state;
+    if (event.target.name === 'firstName') {firstName = event.target.value}
+    else if (event.target.name === 'lastName') {lastName = event.target.value}
+    else if (event.target.name === 'email') {email = event.target.value}
+    else if (event.target.name === 'phone') {phone = event.target.value}
 
-  changeLastName(event){
-    this.setState({
-      firstName: this.state.firstName,
-      lastName: event.target.value,
-      email: this.state.email,
-      phone: this.state.phone,
-    })
-  }
-
-  changeEmail(event){
-    this.setState({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: event.target.value,
-      phone: this.state.phone,
-    })
-  }
-
-  changeNumber(event){
-    this.setState({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      phone: event.target.value,
-    })  
+    this.setState({firstName, lastName, email, phone});
   }
 
   handleSubmission(event){
@@ -63,22 +34,22 @@ class GeneralInfo extends Component{
       <form action='' onSubmit={this.handleSubmission}>
         <div className='column'>
           <label htmlFor='firstName'>First Name</label>
-          <input name='firstName' type='text' onChange={this.changeFirstName} required />
+          <input name='firstName' type='text' onChange={this.handleChange} required />
         </div>
 
         <div className='column'>
-          <label htmlFor='last-Name'>Last Name</label>
-          <input name='last-Name' type='text' onChange={this.changeLastName} required />
+          <label htmlFor='lastName'>Last Name</label>
+          <input name='lastName' type='text' onChange={this.handleChange} required />
         </div>
 
         <div className='column'>
           <label htmlFor='email'>Email</label>
-          <input name='email' type='email' onChange={this.changeEmail} required />
+          <input name='email' type='email' onChange={this.handleChange} required />
         </div>
 
         <div className='column'>
-          <label htmlFor='number'>Phone Number</label>
-          <input name='number' type='number' onChange={this.changeNumber} required />
+          <label htmlFor='phone'>Phone Number</label>
+          <input name='phone' type='number' onChange={this.handleChange} required />
         </div>
         
         <div id='button1'>
