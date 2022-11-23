@@ -16,3 +16,24 @@ div{
   display: flex;
   justify-content: center;
 }
+
+.column{
+  flex-direction: column;
+}
+
+
+form{
+  display: grid;
+  grid-template-columns: 10rem 10rem;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem; 
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+}
+
+#button1{
+  grid-column: 1/-1;
+}
