@@ -1,6 +1,8 @@
 function App() {
   return (
-    <h1>Hello</h1>
+    <div>
+      <h1>CV App Using React</h1>
+    </div>
   );
 }
 
